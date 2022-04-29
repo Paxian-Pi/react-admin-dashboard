@@ -18,6 +18,9 @@ const Login = () => {
 
     const { login, googleSignIn } = useAuth()
 
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
     console.log(errors)
 
     const onCLickHandler = (e) => {

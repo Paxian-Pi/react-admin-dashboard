@@ -6,19 +6,20 @@ import Footer from './layout/Footer';
 import Navbar from './layout/Navbar';
 import { AuthContextProvider } from './context/AuthContextProvider';
 import Dashboard from './layout/Dashboard';
+import PrivateRoute from './common/PrivateRoute';
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <AuthContextProvider>
+        <Navbar />
         <Routes>
           <Route exact path='/' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         </Routes>
+        <Footer />
       </AuthContextProvider>
-      <Footer />
     </Router>
   );
 }

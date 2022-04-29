@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContextProvider';
 import { currentUserActionIsLogin } from '../features/authSlice';
 
 function Navbar() {
-    const { user, isLoginPage } = useSelector((state) => state.auth.value);
+    const { isLoginPage } = useSelector((state) => state.auth.value);
 
     const handleLogout = (e) => {
         e.preventDefault();
@@ -14,6 +15,10 @@ function Navbar() {
     const [toSignup, setToSignup] = useState('')
 
     const dispatch = useDispatch()
+
+    const { user, logout } = useAuth()
+    console.log(user)
+
 
     // useEffect(() => {
     //     dispatch(currentUserActionIsLogin(false))
@@ -30,26 +35,15 @@ function Navbar() {
         }
     }, [isLoginPage])
 
+    const onLinkClickHandler = () => {
+        logout()
+    }
+
 
     const authLinks = (
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-                <Link className="nav-link" to={'/feed'}>Post Feed</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to={'/dashboard'}>Dashboard</Link>
-            </li>
-            <li className="nav-item">
-                <a href="#" onClick={handleLogout} className="nav-link" >
-                    <img
-                        className='rounded-circle'
-                        src={user.avatar}
-                        alt={user.name}
-                        style={{ width: '25px', marginRight: '5px' }}
-                        title='A Gravatar connected to your email will display an image!'
-                    />
-                    Logout
-                </a>
+                <Link onClick={onLinkClickHandler} className="nav-link" to={'/'}>Logout</Link>
             </li>
         </ul>
     );
@@ -81,7 +75,7 @@ function Navbar() {
                             </Link>
                         </li>
                     </ul> */}
-                    {guestLinks}
+                    {user ? authLinks : guestLinks}
                 </div>
             </div>
         </nav>

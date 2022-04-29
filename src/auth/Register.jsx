@@ -21,14 +21,19 @@ const Register = () => {
 
     const navigate = useNavigate()
 
-    const { signup } = useAuth()
+    const { user, signup } = useAuth()
+
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    
+    console.log(user)
 
     const submitHandler = (event) => {
         event.preventDefault();
 
         const newUser = {
-            email: emailInput.current.value,
-            password: passwordInput.current.value
+            email,
+            password
         }
 
         signup(newUser.email, newUser.password)
@@ -70,6 +75,8 @@ const Register = () => {
                                 type='email'
                                 name='email'
                                 refInput={emailInput}
+                                // value={email}
+                                // onChange={(e) => setEmail(e.target.value)}
                                 // error={errors}
                             />
 
@@ -78,6 +85,8 @@ const Register = () => {
                                 type='password'
                                 name='password'
                                 refInput={passwordInput}
+                                // value={password}
+                                // onChange={(e) => setPassword(e.target.value)}
                                 // error={errors}
                             />
 
