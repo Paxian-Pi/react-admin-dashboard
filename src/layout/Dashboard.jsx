@@ -93,11 +93,11 @@ const Dashboard = () => {
                             <form>
                                 <div className="input-group no-border">
                                     <input type="text" value="" className="form-control" placeholder="Search..." />
-                                        <div className="input-group-append">
-                                            <div className="input-group-text">
-                                                <i className="now-ui-icons ui-1_zoom-bold"></i>
-                                            </div>
+                                    <div className="input-group-append">
+                                        <div className="input-group-text">
+                                            <i className="now-ui-icons ui-1_zoom-bold"></i>
                                         </div>
+                                    </div>
                                 </div>
                             </form>
                             <ul className="navbar-nav">
@@ -233,7 +233,7 @@ const Dashboard = () => {
                                                         <div className="form-check">
                                                             <label className="form-check-label">
                                                                 <input className="form-check-input" type="checkbox" checked />
-                                                                    <span className="form-check-sign"></span>
+                                                                <span className="form-check-sign"></span>
                                                             </label>
                                                         </div>
                                                     </td>
@@ -252,7 +252,7 @@ const Dashboard = () => {
                                                         <div className="form-check">
                                                             <label className="form-check-label">
                                                                 <input className="form-check-input" type="checkbox" />
-                                                                    <span className="form-check-sign"></span>
+                                                                <span className="form-check-sign"></span>
                                                             </label>
                                                         </div>
                                                     </td>
@@ -271,7 +271,7 @@ const Dashboard = () => {
                                                         <div className="form-check">
                                                             <label className="form-check-label">
                                                                 <input className="form-check-input" type="checkbox" checked />
-                                                                    <span className="form-check-sign"></span>
+                                                                <span className="form-check-sign"></span>
                                                             </label>
                                                         </div>
                                                     </td>
@@ -292,9 +292,9 @@ const Dashboard = () => {
                                 </div>
                                 <div className="card-footer ">
                                     <hr />
-                                        <div className="stats">
-                                            <i className="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
-                                        </div>
+                                    <div className="stats">
+                                        <i className="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+                                    </div>
                                 </div>
                             </div>
                         </div>

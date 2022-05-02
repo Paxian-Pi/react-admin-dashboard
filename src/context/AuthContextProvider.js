@@ -7,6 +7,10 @@ import { getErrors } from "../features/errorSlice";
 
 const authContext = createContext()
 
+export function useAuth() {
+    return useContext(authContext)
+}
+
 export function AuthContextProvider({ children }) {
 
     const navigate = useNavigate()
@@ -14,6 +18,8 @@ export function AuthContextProvider({ children }) {
     const dispatch = useDispatch()
 
     const [user, setUser] = useState('')
+
+    const [loading, setLoading] = useState(true)
 
     // Create methods here
     const login = (email, password) => {
@@ -42,18 +48,14 @@ export function AuthContextProvider({ children }) {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (userCurrent) => {
             setUser(userCurrent)
-            unsubscribe()
+            setLoading(false)
         })
 
-        // return () => {
-        //     unsubscribe()
-        //     console.log('Unsubscribed')
-        // }
+        return () => {
+            unsubscribe()
+            console.log('Unsubscribed')
+        }
     }, [])
 
-    return <authContext.Provider value={{ user, login, signup, logout, googleSignIn }}>{children}</authContext.Provider>
-}
-
-export function useAuth() {
-    return useContext(authContext)
+    return <authContext.Provider value={{ user, login, signup, logout, googleSignIn }}>{!loading && children}</authContext.Provider>
 }

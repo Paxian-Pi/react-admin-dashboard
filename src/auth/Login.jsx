@@ -94,7 +94,7 @@ const Login = () => {
                             <input type="submit" className="btn btn-info btn-block mt-4" />
                             <br />
                             <p className='text-center'>OR</p>
-                            <GoogleButton onClick={onCLickHandler} className='m-auto ' />                            
+                            <GoogleButton onClick={onCLickHandler} className='m-auto w-100' />                            
 
                             {showModal}
                         </form>
