@@ -36,6 +36,7 @@ const Register = () => {
             password
         }
 
+        console.log(newUser)
         signup(newUser.email, newUser.password)
 
         // registerUser(newUser.email, newUser.password, dispatch, navigate)
@@ -75,8 +76,8 @@ const Register = () => {
                                 type='email'
                                 name='email'
                                 refInput={emailInput}
-                                // value={email}
-                                // onChange={(e) => setEmail(e.target.value)}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 // error={errors}
                             />
 
@@ -85,8 +86,8 @@ const Register = () => {
                                 type='password'
                                 name='password'
                                 refInput={passwordInput}
-                                // value={password}
-                                // onChange={(e) => setPassword(e.target.value)}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 // error={errors}
                             />
 
